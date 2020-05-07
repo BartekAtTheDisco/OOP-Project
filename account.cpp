@@ -16,6 +16,7 @@ void Account::sign_in()
     if((password==password_)&&(login==login_))
     {
 
+
     }
 
     fstream file;
@@ -28,5 +29,5 @@ void Account::sign_in()
 
 void Account::show_balance()
 {
-//
+
 }
