@@ -15,9 +15,11 @@ class Wallet{
     string password_;
 
 public:
-    void print_account();
+    void print_account(string login, string password);
     void create_account();
-    Wallet(string name, string surname, string login, string password);
+    void sign_in(string login, string password);
+    Wallet(string login, string password, string name, string surname);
+    Wallet(string login, string password);
 };
 
 
