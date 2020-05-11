@@ -15,35 +15,27 @@ int main()
     cin>>log;
 
     switch(log)
-    {
+{
+
+
 case 1:
-    {
-    string x, y, login, password,line;
+{
+    string x, y;
+
     cout<<endl<<" login: ";
     cin>>x;
     cout<<endl<<" password: ";
     cin>>y;
+    Wallet w1(x,y);
+    w1.sign_in(x,y);
+    w1.print_account(x,y);
 
-    fstream file;
-    file.open("profile.txt", ios::in);
-    getline(file,line);
-    login=line;
-    getline(file,line);
-    password=line;
-    file.close();
-    cout<<login;
-    cout<<password;
-    if((login==x)&&(password==y))
-    {
-        cout<<endl<<endl<<"                                                        **access approved**";
-    }
-    else
-        cout<<endl<<endl<<"                                                        **access denied**";
-
+}
     break;
-    }
+
 
 case 2:
+    {
     string login,password,name,surname;
     cout<<endl<<" enter your login: ";
     cin>>login;
@@ -53,29 +45,27 @@ case 2:
     cin>>name;
     cout<<endl<<" enter your SURNAME: ";
     cin>>surname;
-    Wallet w1(name,surname,login,password);
+    Wallet w1(login,password,name,surname);
+
     w1.create_account();
+    }
+    break;
+}
      int choice;
     cout<<endl<<endl<<"                           ~~~~~~~~~~~~~~~~~~~~";
     cout<<endl<<endl<<"                    ***choose number to pick action***"<<endl;
     cout<<endl<<" 1. show my account data"<<endl;
     cout<<endl<<" 2. show my balance"<<endl;
     cin>>choice;
-    switch(choice)
-    {
-
-    case 1:
-    w1.print_account();
-    break;
-
-
-    }
 
 
 
 
 
 
-    }
+
+
+
+
     return 0;
 }
