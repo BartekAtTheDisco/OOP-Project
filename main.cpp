@@ -2,12 +2,28 @@
 #include <fstream>
 #include "account.h"
 #include "wallet.h"
+#include "Functions.hpp"
+#include "Cryptocurrency.hpp"
 
 using namespace std;
 
 int main()
 {
 
+    //Konstruktory krypto(domyślnie każda wartość jest na 0)
+    Bitcoin B;
+    Ethereum E;
+    Lisk L;
+    
+    // przypisywanie wartości do każdej krypto(polimorfizm)
+    Cryptocurrency* ptr{nullptr};
+    ptr = &B;
+    ptr->assign_current_value(check_BTC());
+    ptr = &E;
+    ptr->assign_current_value(check_ETH());
+    ptr = &L;
+    ptr->assign_current_value(check_LSK());
+    
     int log;
     cout<<"              _| Welcome to the cryptocurrency stock simulator |_ "<<endl;
     cout<<endl<<"1.   SIGN IN";
