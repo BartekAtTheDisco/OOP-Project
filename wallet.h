@@ -13,6 +13,9 @@ class Wallet{
     string surname_;
     string login_;
     string password_;
+    float BTC;
+    float ETH;
+    float LSK;
 
 public:
     void print_account(string login, string password);
