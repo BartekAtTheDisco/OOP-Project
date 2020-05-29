@@ -5,15 +5,17 @@
 
 using namespace std;
 
-class Account
-:public Wallet
-{
+class Account{
 
+    string _name;
+    string _surname;
+    double eur_;
 
 
     public:
-        void sign_in();
+        Account();
         void show_balance();
+        void load_eur();
 };
 
 
