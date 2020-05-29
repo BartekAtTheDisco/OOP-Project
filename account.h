@@ -7,13 +7,16 @@ using namespace std;
 
 class Account{
 
-    string _name;
-    string _surname;
+    string login_;
+    string password_;
+    string name_;
+    string surname_;
     double eur_;
 
 
     public:
         Account();
+        Account(string l,string p, string n, string s);
         void show_balance();
         void load_eur();
 };
