@@ -2,33 +2,36 @@
 #include <fstream>
 #include "account.h"
 #include "wallet.h"
+#include "manager.h"
+#include <vector>
+#include <windows.h>
 
 using namespace std;
 
 int main()
 {
-
     int log;
-    while(log!=0)
-    cout<<"              _| Welcome to the cryptocurrency stock simulator |_ "<<endl;
+    bool end = true;
+    vector <Account> acc;
+    int i=0;
+    Manager manage();
+    do
+    {
+    int log;
+    cout<<endl<<"              _| Welcome to the cryptocurrency stock simulator |_ "<<endl;
     cout<<endl<<" 1.   SIGN IN";
     cout<<endl<<" 2.   CREATE ACCOUNT";
     cout<<endl<<" 0.   EXIT"<<endl<<endl<<"      -------"<<endl;
     cin>>log;
 
-    if(log==1)
-    {
-    string x, y;
-    cout<<endl<<" login: ";
-    cin>>x;
-    cout<<endl<<" password: ";
-    cin>>y;
-    Wallet w1(x,y);
-    w1.sign_in(x,y);
-    Account a1(x,y);
 
-    int choice;
-    while(choice!=0)
+    switch(log)
+    case 1:
+    {
+    string login;
+    login = manage.log_in();
+    Account acc[i].emplace_back{Account()}
+    while(end==true)
     {
     cout<<endl<<endl<<"                    ***choose number to pick action***"<<endl;
     cout<<endl<<" 1. show my account data"<<endl;
@@ -42,16 +45,17 @@ int main()
 
 case 1:
     {
-    w1.print_account();
+    Wallet wall[i]();
+    wall[i].print_account();
     break;
     }
 case 3:
     {
-    a1.load_eur();
+    acc[i].load_eur();
     }
 
 
-    }
+}
     }
     }
     else if(log==2)
@@ -65,13 +69,22 @@ case 3:
     cin>>name;
     cout<<endl<<" enter your SURNAME: ";
     cin>>surname;
-    Wallet w1(login,password,name,surname);
-    w1.create_account();
+    Wallet wall[i](login,password,name,surname);
+    wall[i].create_account();
+    i++;
     }
     else if(log!=2 && log!=1 && log!=0)
     {
         cout<<endl<<" error";
     }
+
+
+    }
+    while(end==true);
+
+
+
+
 
 
 
