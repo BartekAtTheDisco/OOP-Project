@@ -1,6 +1,8 @@
-include "wallet.h"
+#include <iostream>
 #include <fstream>
 #include <sstream>
+#include "account.h"
+#include "wallet.h"
 
 using namespace std;
 
@@ -10,6 +12,12 @@ Account::Account()
 
 }
 
+
+Account::Account(string l,string p, string n, string s)
+:login_{l},password_{p},name_{n},surname_{s}
+    {
+
+    }
 /*
 
 void Account::load_eur()
