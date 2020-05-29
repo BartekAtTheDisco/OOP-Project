@@ -30,7 +30,7 @@ string Manager::log_in()
     file>>word;
     password=word;
 
-    if((login==loginattempt)&&(password==passwordattempt))                                  // logowanie "na pałe" wszystko po kolei sprawdzamu        
+    if((login==loginattempt)&&(password==passwordattempt))                                  // logowanie "na pałe" wszystko po kolei sprawdzamu
     {
 
         cout<<endl<<endl<<"                                                  **access approved**";
@@ -40,7 +40,7 @@ string Manager::log_in()
         file>>word;
         surname=word;
         cout<<endl<<endl<<" HELLO "<<name<<" "<<surname<<" :)"<<endl;                       //przywitanie użytkownika
-        Account acc[i].emplace_back{Account(login, password, name, surname)};               //wywołanie konstruktora account po zalogowaniu 
+        Account acc[i].emplace_back{Account(login, password, name, surname)};               //wywołanie konstruktora account po zalogowaniu
         check=false;
     }
     }
@@ -65,7 +65,7 @@ void Manager::create_account()
     cin>>name;
     cout<<endl<<" enter your surname: ";
     cin>>surname;                           //pobieranie danych do tworzenia konta
-    
+
     fstream file;
     file.open("profile.txt", ios::out );
     if(file.good()==true)
@@ -79,8 +79,8 @@ void Manager::create_account()
         file<<zero<<" ";
         file<<zero<<" ";
         file<<zero<<" "<<endl;           //tworzenie konta ale tylko w pliku txt, ustawianie atrybutów jest dopiero w logowaniu
-                                         //ponieważ po stworzeniu konta znowu wyświetli się menu *login/create_account/exit* i użytkownik i tak będzie musiał się zalogować       
-        cout<<end;<<"   *succes*";          
+                                         //ponieważ po stworzeniu konta znowu wyświetli się menu *login/create_account/exit* i użytkownik i tak będzie musiał się zalogować
+        cout<<endl<<"   *succes*";
     }
     else
         cout<<endl<<"   *error*";
@@ -89,3 +89,4 @@ void Manager::create_account()
     file.close();
 
 }
+
