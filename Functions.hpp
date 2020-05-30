@@ -6,7 +6,7 @@
 
 float check_BTC();
 float check_ETH();
-float check_LSK();
+float check_LTC();
 void print_current_value(Cryptocurrency *x);
 
 
