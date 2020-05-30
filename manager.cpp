@@ -7,86 +7,106 @@
 
 using namespace std;
 
-Manager::manager()
+Manager::Manager()
 {
     //ctor
 }
 
-
-string Manager::log_in()
-{
-    string loginattempt, passwordattempt, login, password,word, name, surname;
-    cout<<endl<<" login: ";
-    cin>>loginattempt;
-    cout<<endl<<" password: ";
-    cin>>passwordattempt;
-
-    bool check=true;
-    fstream file;
-    file.open("profile.txt", ios::in);
-    while(file>>word)
-    {
-    login=word;
-    file>>word;
-    password=word;
-
-    if((login==loginattempt)&&(password==passwordattempt))                                  // logowanie "na pałe" wszystko po kolei sprawdzamu
-    {
-
-        cout<<endl<<endl<<"                                                  **access approved**";
-        file>>word;
-        name=word;
-
-        file>>word;
-        surname=word;
-        cout<<endl<<endl<<" HELLO "<<name<<" "<<surname<<" :)"<<endl;                       //przywitanie użytkownika
-        Account acc[i].emplace_back{Account(login, password, name, surname)};               //wywołanie konstruktora account po zalogowaniu
-        check=false;
-    }
-    }
-
-    if(check==false)
-         cout<<endl<<endl<<"                                                  **access denied**";
-
-    file.close();
-    return login;
-}
-
-
 void Manager::create_account()
 {
-    double zero = 0.0;
-    string login, password,name,surname;
-    cout<<endl<<" enter your new login: ";
-    cin>>login;
-    cout<<endl<<" enter your new password: ";
-    cin>>password;
-    cout<<endl<<" enter your name: ";
-    cin>>name;
-    cout<<endl<<" enter your surname: ";
-    cin>>surname;                           //pobieranie danych do tworzenia konta
-
+    bool occupied_login;
+    string login, password, name, surname, textline;
     fstream file;
-    file.open("profile.txt", ios::out );
-    if(file.good()==true)
+    do
     {
-
-        file<<login<<" ";
-        file<<password<<" ";
-        file<<name<<" ";
-        file<<surname<<" ";
-        file<<zero<<" ";
-        file<<zero<<" ";
-        file<<zero<<" ";
-        file<<zero<<" "<<endl;           //tworzenie konta ale tylko w pliku txt, ustawianie atrybutów jest dopiero w logowaniu
-                                         //ponieważ po stworzeniu konta znowu wyświetli się menu *login/create_account/exit* i użytkownik i tak będzie musiał się zalogować
-        cout<<endl<<"   *succes*";
+    occupied_login = false;
+    cout << "Enter login: ";
+    cin >> login;
+    cout << "Enter password: ";
+    cin >> password;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Enter your surname: ";
+    cin >> surname;
+    
+    file.open("profile_data.txt", ios::in);
+    vector<string> file_data;
+    while(getline(file,textline))
+        file_data.emplace_back(textline);
+    for(int i=0; i<file_data.size(); i+=9)
+    {
+        if(login == file_data.at(i))
+        {
+            cout << "This login is already taken. Please choose another one." << endl;
+            occupied_login = true;
+        }
     }
-    else
-        cout<<endl<<"   *error*";
-
-
     file.close();
-
+    }while(occupied_login == true);
+    file.open("profile_data.txt", ios::out | ios::app);
+    file << login << endl;
+    file << password << endl;
+    file << name << endl;
+    file << surname << endl;
+    for(int i=0; i<4; i++)
+        file << 0 << endl;
+    file << "###" << endl;
+    file.close();
 }
 
+Account Manager::sign_in()
+{
+    Account wrong_login;
+    bool logged = false;
+    string login, password, login_check, password_check, textline;
+    do{
+    int iterations = 0;
+    cout << "Login: ";
+    cin >> login;
+    cout << "Password: ";
+    cin >> password;
+    fstream file;
+    file.open("profile_data.txt", ios::in);
+    vector<string> file_data;
+    while(getline(file,textline))
+        file_data.emplace_back(textline);
+    for(int i=0; i<file_data.size(); i+=9)
+    {
+        if (file_data.at(i) == login)
+        {
+            cout << file_data.at(i);
+            if(file_data.at(i+1) == password)
+            {
+                cout << "You have logged in successfully." << endl;
+                Account logged_object(file_data.at(i+2), file_data.at(i+3), stod(file_data.at(i+4)), stod(file_data.at(i+5)), stod(file_data.at(i+6)), stod(file_data.at(i+7)));
+                return logged_object;
+            }
+            else
+            {
+                cout << "Wrong login or password." << endl;
+                exit(0);
+            }
+        }
+        else if(iterations == file_data.size()/9-1)
+        {
+            cout << "Wrong login or password." << endl;
+            cout << "1. Try again." << endl;
+            cout << "2. Give up." << endl;
+            int choice;
+            cin >> choice;
+            switch (choice) {
+                case 1:
+                    logged = false;
+                    break;
+                    
+                case 2:
+                    logged = true;
+                    break;
+            }
+        }
+        iterations++;
+    }
+    file.close();
+    }while(logged == false);
+    return wrong_login;
+}
