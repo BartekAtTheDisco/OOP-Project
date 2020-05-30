@@ -2,22 +2,19 @@
 #include <fstream>
 #include <sstream>
 #include "account.h"
-#include "wallet.h"
+
 
 using namespace std;
 
+
+
+Account::Account(string name, string surname, double Euro, double BTC, double ETH, double LTC)
+:name{name}, surname{surname}, Eur{Euro}, BTC{BTC}, ETH{ETH}, LTC{LTC}{}
+
 Account::Account()
-:eur_{0.0}
 {
-
+    name = "Error";
 }
-
-
-Account::Account(string l,string p, string n, string s)
-:login_{l},password_{p},name_{n},surname_{s}
-    {
-
-    }
 /*
 
 void Account::load_eur()
@@ -49,3 +46,4 @@ void Account::load_eur()
     file.close();
 
 }
+*/
