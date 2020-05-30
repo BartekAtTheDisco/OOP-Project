@@ -11,7 +11,7 @@ void Ethereum::assign_current_value(float x){
     current_value = x;
 }
 
-void Lisk::assign_current_value(float x){
+void Litecoin::assign_current_value(float x){
     current_value = x;
 }
 
@@ -23,7 +23,7 @@ float Ethereum::get_current_value(){
     return current_value;
 }
 
-float Lisk::get_current_value(){
+float Litecoin::get_current_value(){
     return current_value;
 }
 
@@ -34,5 +34,5 @@ Bitcoin::Bitcoin()
 Ethereum::Ethereum()
     :current_value{0}{cout << "Initialising Ethereum" << endl;}
 
-Lisk::Lisk()
+Litecoin::Litecoin()
     :current_value{0}{cout << "Initialising Lisk" << endl;}
