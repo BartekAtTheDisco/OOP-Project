@@ -30,10 +30,10 @@ public:
     
 };
 
-class Lisk : public Cryptocurrency{
+class Litecoin : public Cryptocurrency{
     float current_value;
 public:
-    Lisk();
+    Litecoin();
     virtual void assign_current_value(float);
     virtual float get_current_value();
 };
