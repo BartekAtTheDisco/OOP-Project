@@ -1,22 +1,22 @@
 #include <iostream>
-#include "wallet.h"
 #ifndef ACCOUNT_H_INCLUDED
 #define ACCOUNT_H_INCLUDED
 
 using namespace std;
 
 class Account{
-
-    string login_;
-    string password_;
-    string name_;
-    string surname_;
-    double eur_;
+    
+    string name;
+    string surname;
+    double Eur;
+    double BTC;
+    double ETH;
+    double LTC;
 
 
     public:
         Account();
-        Account(string l,string p, string n, string s);
+        Account(string name, string surname, double Euro, double BTC, double ETH, double LTC);
         void show_balance();
         void load_eur();
 };
