@@ -10,9 +10,9 @@ float check_ETH(){
     return eth_val;
 }
 
-float check_LSK(){
-    float lsk_val = 5.13;
-    return lsk_val;
+float check_LTC(){
+    float ltc_val = 5.13;
+    return ltc_val;
 }
 
 void print_current_value(Cryptocurrency *x){
