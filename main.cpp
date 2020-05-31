@@ -29,19 +29,23 @@ int main()
         int choice;
         cout << "1. Create account" << endl;
         cout << "2. Sign in" << endl;
+        cout << "3. Print all data" << endl;
         cin >> choice;
         switch (choice) {
             case 1:
                 manage.create_account();
                 break;
-                
+
             case 2:
                 acc.emplace_back(manage.sign_in());
                 break;
+            case 3:
+                manage.print_alldata();
         }
             cout << "brawo mistrzuniu" << endl;
         }
-    
+
+
         return 0;
     }
     //int log;
