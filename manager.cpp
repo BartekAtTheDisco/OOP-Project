@@ -110,3 +110,30 @@ Account Manager::sign_in()
     }while(logged == false);
     return wrong_login;
 }
+
+
+void Manager::print_alldata()
+{
+    string textline;
+    vector <string> data;
+    fstream file;
+    file.open("profile_data.txt" , ios::in);
+    while(getline(file,textline))
+        data.emplace_back(textline);
+
+    int accnumber=0;
+    for(int i=0 ; i+8<data.size() ; i=i+9)
+    {
+        cout<<endl<<"   account no #"<<accnumber+1;
+        cout<<endl<<" login: "<<data[i];
+        cout<<endl<<" password: "<<data[i+1];
+        cout<<endl<<" name: "<<data[i+2];
+        cout<<endl<<" surname: "<<data[i+3];
+        cout<<endl<<" eur: "<<data[i+4];
+        cout<<endl<<" bitcoin: "<<data[i+5];
+        cout<<endl<<" ethereum: "<<data[i+6];
+        cout<<endl<<" litecoin: "<<data[i+7]<<endl;
+        accnumber++;
+    }
+    file.close();
+}
