@@ -5,7 +5,7 @@
 using namespace std;
 
 class Account{
-    
+
     string name;
     string surname;
     double Eur;
@@ -19,6 +19,7 @@ class Account{
         Account(string name, string surname, double Euro, double BTC, double ETH, double LTC);
         void show_balance();
         void load_eur();
+        void show_accdata();
 };
 
 
