@@ -59,7 +59,14 @@ int main()
         acc[i].show_accdata();
         break;
 
+    case 2:
+        acc[i].show_balance();
+        break;
 
+    case 3:
+        acc[i].load_eur();
+        break;
+            
     case 9:
         manage.print_alldata();
         break;
