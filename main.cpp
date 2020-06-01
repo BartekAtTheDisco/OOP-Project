@@ -68,7 +68,7 @@ int main()
         break;
             
     case 9:
-        manage.print_alldata();
+        manage.show_alldata();
         break;
 
     case 0:
