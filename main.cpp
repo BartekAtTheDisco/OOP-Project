@@ -42,7 +42,7 @@ int main()
         acc.emplace_back(manage.sign_in());
         bool menu = false;
     do
-    {
+     {
     int choice;
     cout<<endl<<endl<<"                    ***choose number to pick action***"<<endl;
     cout<<endl<<" 1. show my account data"<<endl;
@@ -53,18 +53,22 @@ int main()
     cin>>choice;
 
     switch(choice)
-    {
-         case 9:
-                manage.print_alldata();
-                break;
+       {
+    case 1:
+        acc[0].show_accdata();
+        break;
 
-         case 0:
-            menu=true;
-            break;
 
-    }
+    case 9:
+        manage.print_alldata();
+        break;
 
-    }while(menu==false);
+    case 0:
+        menu=true;
+        break;
+
+      }
+     }while(menu==false);
     break;
         }
 
@@ -76,7 +80,7 @@ int main()
 
     case 0:
         {
-        cout<<endl<<endl<<"   you successfully have closed STOCK SIMULATION (version 6.9.9.)";
+        cout<<endl<<endl<<"   you have successfully closed STOCK SIMULATION (version 6.9.9.)";
         end=true;
         break;
         }
