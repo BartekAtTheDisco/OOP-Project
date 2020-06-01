@@ -112,7 +112,7 @@ Account Manager::sign_in()
 }
 
 
-void Manager::print_alldata()
+void Manager::show_alldata()
 {
     string textline;
     vector <string> data;
