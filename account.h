@@ -8,7 +8,7 @@ class Account{
 
     string name;
     string surname;
-    double Eur;
+    double EUR;
     double BTC;
     double ETH;
     double LTC;
