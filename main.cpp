@@ -22,8 +22,8 @@ int main()
     ptr->assign_current_value(check_LTC());
 
 
-    int log;
-    bool end = false;
+    int log,i=-1;                   //tutaj to i troche zhardkodowałem i nie wiem czy sie do tego nie doczepi ale 
+    bool end = false;               //jak na razie nie mam lepszego pomysłu
     vector <Account> acc;
     Manager manage;
 
@@ -40,6 +40,7 @@ int main()
     case 1:
         {
         acc.emplace_back(manage.sign_in());
+        i++;
         bool menu = false;
     do
      {
@@ -55,7 +56,7 @@ int main()
     switch(choice)
        {
     case 1:
-        acc[0].show_accdata();
+        acc[i].show_accdata();
         break;
 
 
