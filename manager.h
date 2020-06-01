@@ -12,7 +12,7 @@ class Manager
     Manager();
     Account sign_in();
     void create_account();
-    void print_alldata();
+    void show_alldata();
 
 };
 
