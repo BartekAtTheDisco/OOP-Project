@@ -4,8 +4,10 @@
 
 using namespace std;
 
-class Account{
-
+class Account
+{
+    string login;
+    string password;
     string name;
     string surname;
     double EUR;
@@ -16,10 +18,11 @@ class Account{
 
     public:
         Account();
-        Account(string name, string surname, double Euro, double BTC, double ETH, double LTC);
+        Account(string login_, string password_, string name_, string surname_, double Euro, double BTC_, double ETH_, double LTC_);
         void show_balance();
         void load_eur();
         void show_accdata();
+        void save_data();
 };
 
 
@@ -27,3 +30,4 @@ class Account{
 
 
 #endif // ACCOUNT_H_INCLUDED
+
