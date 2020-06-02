@@ -13,7 +13,7 @@ class Manager
     Account sign_in();
     void create_account();
     void show_alldata();
-
+    void run();
 };
 
 #endif // MANAGER_H
